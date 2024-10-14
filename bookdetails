@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+class Book {
+    String name;
+    String author;
+    int price;
+    int numpages;
+
+    Book(String name, String author, int price, int numpages) {
+        this.name = name;
+        this.author = author;
+        this.price = price;
+        this.numpages = numpages; 
+    }
+
+    public String toString() {
+        return "Book name: " + this.name + "\n" +
+               "Author name: " + this.author + "\n" +
+               "Price: " + this.price + "\n" +
+               "Number of pages: " + this.numpages + "\n";
+    }
+}
+
+class Bookdetails {
+    public static void main(String args[]) {
+        System.out.println("name : meghana u");
+        System.out.println("usn : 24BECS401");
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the number of books");
+        int n = s.nextInt();
+        s.nextLine();
+
+        Book b[] = new Book[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter the name of the book:");
+            String name = s.nextLine();
+            System.out.println("Enter the author of the book:");
+            String author = s.nextLine();
+            System.out.println("Enter the price of the book:");
+            int price = s.nextInt();
+            System.out.println("Enter the number of pages of the book:");
+            int numpages = s.nextInt();
+            s.nextLine();
+
+            b[i] = new Book(name, author, price, numpages); 
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("Book details are:\n" + b[i].toString());
+        }
+        s.close();     }
+}
