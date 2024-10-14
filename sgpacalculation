@@ -1,0 +1,89 @@
+import java.util.Scanner;
+
+class Subject {
+    int subjectMarks;
+    int credits;
+    int grade;
+
+    public Subject() {
+        this.subjectMarks = 0;
+        this.credits = 0;
+        this.grade = 0;
+    }
+}
+
+class Student {
+    String name;
+    String usn;
+    double SGPA;
+    Subject[] subjects;
+    Scanner scanner;
+
+    public Student() {
+        subjects = new Subject[9];
+        for (int i = 0; i < 9; i++) {
+            subjects[i] = new Subject();         }
+        scanner = new Scanner(System.in);
+    }
+
+    public void getStudentDetails() {
+        System.out.print("Enter name: ");
+        name = scanner.nextLine();
+        System.out.print("Enter USN: ");
+        usn = scanner.nextLine();
+    }
+
+    public void getMarks() {
+        for (int i = 0; i < subjects.length; i++) {
+            System.out.print("Enter marks for subject " + (i + 1) + ": ");
+            subjects[i].subjectMarks = scanner.nextInt();
+            System.out.print("Enter credits for subject " + (i + 1) + ": ");
+            subjects[i].credits = scanner.nextInt();
+
+            if (subjects[i].subjectMarks > 100) {
+                subjects[i].grade = 0; // Invalid grade
+                System.out.println("Invalid marks, can't be more than 100.");
+            } else if (subjects[i].subjectMarks < 40) {
+                subjects[i].grade = 2; // Fail grade
+            } else if (subjects[i].subjectMarks >= 40 && subjects[i].subjectMarks < 60) {
+                subjects[i].grade = 3; // C grade
+            } else if (subjects[i].subjectMarks >= 60 && subjects[i].subjectMarks < 75) {
+                subjects[i].grade = 4; // B grade
+            } else {
+                subjects[i].grade = 5; // A grade
+            }
+        }
+    }
+
+    public void computeSGPA() {
+        double totalCredits = 0;
+        double totalPoints = 0;
+
+        for (Subject subject : subjects) {
+            totalCredits += subject.credits;
+            totalPoints += subject.subjectMarks * subject.credits; // 
+        }
+
+        SGPA = totalPoints / totalCredits; // Calculate SGPA
+    }
+
+    public void displayResult() {
+        System.out.println("Name: " + name);
+        System.out.println("USN: " + usn);
+        System.out.printf("SGPA: %.1f%n", SGPA); // Display SGPA with one decimal place
+    }
+}
+
+class Student1 {
+    public static void main(String[] args) {
+for(i=0;i<student.length;i++){
+System.out.println(enter the details of the student"+(i+1)+":");
+
+        Student s1 = new Student();
+        Student[] student = new Student[n];
+        s1.getStudentDetails();
+        s1.getMarks();
+        s1.computeSGPA();
+        s1.displayResult();
+    }
+}
