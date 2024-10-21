@@ -1,0 +1,89 @@
+import java.util.Scanner;
+
+class Shape {
+     int base;
+     int height;
+
+    public Shape(int base, int height) {
+        this.base = base;
+        this.height = height;
+    }
+}
+
+class Rectangle extends Shape {
+    public Scanner sc;
+
+    public Rectangle() {
+        super(0, 0);
+        sc = new Scanner(System.in);
+        getDimensions();
+    }
+
+    public void getDimensions() {
+        System.out.print("Enter the height of the rectangle: ");
+        this.base = sc.nextInt();
+        System.out.print("Enter the width of the rectangle: ");
+        this.height = sc.nextInt();
+    }
+
+    void printArea() {
+        double area =  base * height;
+        System.out.println("The area of the rectangle is: " + area);
+    }
+}
+class Triangle extends Shape {
+    public Scanner sc;
+
+    public Triangle() {
+        super(0, 0);
+        sc = new Scanner(System.in);
+        getDimensions();
+    }
+
+    public void getDimensions() {
+        System.out.print("Enter the base of the triangle: ");
+        this.base = sc.nextInt();
+        System.out.print("Enter the height of the triangle: ");
+        this.height = sc.nextInt();
+    }
+
+    void printArea() {
+        double area = 0.5 * base * height;
+        System.out.println("The area of the triangle is: " + area);
+    }
+}
+  
+class Circle extends Shape {
+    public Scanner sc;
+
+    public Circle() {
+        super(0,0);
+        sc = new Scanner(System.in);
+        getDimensions();
+    }
+
+    public void getDimensions() {
+        System.out.print("Enter the radius of the Circle: ");
+        this.base = sc.nextInt();
+            }
+
+    void printArea() {
+        double area = 3.14 * base * base;
+        System.out.println("The area of the circle is: " + area);
+    }
+}
+
+    
+ public class shapearea{   
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle();
+        rectangle.printArea();
+        Triangle triangle = new Triangle();
+        triangle.printArea();
+        Circle circle = new Circle();
+        circle.printArea();
+        
+    
+    }
+}
+
